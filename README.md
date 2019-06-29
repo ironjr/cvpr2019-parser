@@ -1,7 +1,7 @@
 # cvpr2019-parser
 A simple parser to retrieve basic information about the works presented in CVPR 2019
 
-### TODO
+### Howto
 - Run by executing the following line:
 ```bash
 python3 run.py --keyword={Your keyword here}
