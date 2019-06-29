@@ -33,6 +33,10 @@ def main(args):
 
             if not os.path.isdir(keyword):
                 os.mkdir(keyword)
+            if not os.path.isdir(os.path.join(keyword, 'arxiv')):
+                os.mkdir(os.path.join(keyword, 'arxiv'))
+            if not os.path.isdir(os.path.join(keyword, 'openaccess')):
+                os.mkdir(os.path.join(keyword, 'openaccess'))
 
             # Search website for more information
             print('Download papers from online ...')
@@ -46,6 +50,8 @@ def main(args):
                 pool.apply_async(crawler.client, args=(result[i],), callback=update_pbar)
             pool.close()
             pool.join()
+            #  for paper in tqdm(result):
+            #      crawler.client(paper)
             print('')
             print('Download is now complete')
             print('')
